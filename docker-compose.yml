@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  careerfit-db:
+    image: postgres:15
+    container_name: careerfit_postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: rootpassword
+      POSTGRES_DB: careerfit
+      TZ: Asia/Seoul
+    volumes:
+      - careerfit_pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  careerfit_pgdata:
